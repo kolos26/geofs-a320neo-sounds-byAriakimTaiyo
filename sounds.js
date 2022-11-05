@@ -33,8 +33,8 @@ geofs.aircraft.instance.definition.sounds[10].effects = { "start": { "value": "p
 
 //GPWS and RadioAlt callout test
 
-let isApprConfig = false;
-let trafficAlt = null;
+isApprConfig = false;
+trafficAlt = null;
 geofs.animation.values.isFlapsWarn = 0;
 geofs.animation.values.isGearWarn = 0;
 geofs.animation.values.isTerrainWarn = 0;
@@ -58,7 +58,7 @@ geofs.animation.values.gpws30 = 0;
 geofs.animation.values.gpws20 = 0;
 geofs.animation.values.gpws10 = 0;
 geofs.animation.values.isRetard = 0;
-let restingPoint = 12.232906828403847;
+restingPoint = 12.232906828403847;
 
 function getTrafficProximity() {
   Object.values(multiplayer.visibleUsers).forEach(function(e) {
@@ -117,10 +117,10 @@ function getTrafficProximity() {
   })
 }
 
-let counter = 0;
-let counterAtClear = 0;
-let lastWind = 0;
-let interval = setInterval(function() {
+counter = 0;
+counterAtClear = 0;
+lastWind = 0;
+interval = setInterval(function() {
   if (counter < 2) {
     counter = counter + 1
   }
