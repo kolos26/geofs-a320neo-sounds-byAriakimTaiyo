@@ -294,6 +294,14 @@ function doRadioAltCall() {
   }
 }
 
+function getStall() {
+    if (ui.hud.stallAlarmOn && geofs.animation.values.haglFeet > 20){
+        geofs.animation.values.isStall = 1
+    }
+    else{
+        geofs.animation.values.isStall = 0
+    }
+}
 
 setInterval(function() {
   getTrafficProximity();
@@ -302,7 +310,8 @@ setInterval(function() {
   testForApproach();
   testTerrainorAppr();
   getRetard();
-  doRadioAltCall()
+  doRadioAltCall();
+  getStall()
 })
 //assign alarms and sound fx
 
@@ -410,6 +419,11 @@ geofs.aircraft.instance.definition.sounds[31] = {};
 geofs.aircraft.instance.definition.sounds[31].id = "retard"
 geofs.aircraft.instance.definition.sounds[31].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/retard.mp3"
 geofs.aircraft.instance.definition.sounds[31].effects = { "start": { "value": "isRetard" } }
+
+geofs.aircraft.instance.definition.sounds[32] = {};
+geofs.aircraft.instance.definition.sounds[32].id = "stall"
+geofs.aircraft.instance.definition.sounds[32].file = "https://sage-narwhal-290a3c.netlify.app/airbusstall.mp3"
+geofs.aircraft.instance.definition.sounds[32].effects = { "start": { "value": "isStall" } }
 
 audio.init(geofs.aircraft.instance.definition.sounds);
 geofs.aircraft.instance.definition.sounds[0].effects.volume.ratio = 100
